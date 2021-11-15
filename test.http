@@ -1,0 +1,61 @@
+POST http://localhost:7071/runtime/webhooks/eventgrid?functionName=EventGridTriggered HTTP/1.1
+content-type: application/json
+aeg-event-type: Notification
+Date: {{$datetime rfc1123}}
+
+[
+  {
+    "id": "{{$guid}}",
+    "eventType": "Local2LocalHostPostmanWebhooks",
+    "subject": "localhost:7071/runtime/webhooks/eventgrid",
+    "data": {
+      "message": "Postman to Localhost"
+    },
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "{{$datetime 'YYYY-MM-DDTHH:mm:ss.000Z'}}"
+  }
+]
+
+
+###
+POST https://25b9-218-214-242-14.ngrok.io/runtime/webhooks/eventgrid?functionName=EventGridTriggered HTTP/1.1
+content-type: application/json
+aeg-event-type: Notification
+Date: {{$datetime rfc1123}}
+
+[
+  {
+    "id": "{{$guid}}",
+    "eventType": "Ngrok2LocalHostPostmanWebhooks",
+    "subject": "25b9-218-214-242-14.ngrok.io/runtime/webhooks/eventgrid",
+    "data": {
+      "message": "Postman to Localhost"
+    },
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "{{$datetime 'YYYY-MM-DDTHH:mm:ss.000Z'}}"
+  }
+]
+
+
+###
+# Send to event grid 
+POST https://laegt0001.eastus-1.eventgrid.azure.net/api/events HTTP/1.1
+content-type: application/json
+aeg-sas-key: lexIbXEbwj3+CFTxETfeGlIoGP8UDU4i++SEvRZZeqk=
+Date: {{$datetime rfc1123}}
+
+[
+  {
+    "id": "{{$guid}}",
+    "eventType": "Ngrok2LocalHostPostmanWebhooks",
+    "subject": "25b9-218-214-242-14.ngrok.io/runtime/webhooks/eventgrid",
+    "data": {
+      "message": "Postman to Localhost"
+    },
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "{{$datetime 'YYYY-MM-DDTHH:mm:ss.000Z'}}"
+  }
+]

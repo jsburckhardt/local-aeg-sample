@@ -1,0 +1,4 @@
+eventSubscriptions:
+  localapisubscription:
+    topic: <topic>
+    webhookUrl: http://localhost:7071/runtime/webhooks/eventgrid?functionName=EventGridTriggered

@@ -1,0 +1,4 @@
+eventSubscriptions:
+  localfasubscription:
+    topic: /subscriptions/6d4b6e53-2dbe-4f3c-9bd5-7dfba89d7edc/resourceGroups/laeg-rg0001/providers/Microsoft.EventGrid/topics/laegt0001
+    webhookUrl: http://localhost:7071/runtime/webhooks/eventgrid?functionName=EventGridTriggered
